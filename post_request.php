@@ -4,6 +4,7 @@
   use Psr\Http\Message\ServerRequestInterface;
   use React\Http\Response;
   use React\Http\Server;
+  use React\Promise\Promise;
 
   # Creating a event loop for our server
   $loop = React\EventLoop\Factory::create();
@@ -11,6 +12,7 @@
   $server = new Server(function (ServerRequestInterface $request) {
       return new Promise(function ($resolve, $reject) use ($request) {
           $contentLength = 0;
+          
           $request->getBody()->on('data', function ($data) use (&$contentLength) {
               $contentLength += strlen($data);
           });
