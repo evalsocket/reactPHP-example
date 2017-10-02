@@ -1,18 +1,15 @@
 <?php
     // http client making a request to github api
     require 'vendor/autoload.php';
+
     # Creating a event loop for our server
     $loop = React\EventLoop\Factory::create();
-    # Define DNS Resolver
-    $dnsResolverFactory = new React\Dns\Resolver\Factory();
-    # Configure DNS Resolver with google dns 8.8.8.8 and add it in event loop
-    $dnsResolver = $dnsResolverFactory->createCached('8.8.8.8', $loop);
-    # Create a HHTP Client and add it in event loop
-    $factory = new React\HttpClient\Factory();
 
-    $client = $factory->create($loop, $dnsResolver);
+    # Create a HHTP Client and add it in event loop
+    $client = new React\HttpClient\Client($loop);
+
     # Send a Get reuest to 
-    $request = $client->request('GET', 'https://api.github.com/repos/evalsocket/evalsocket/commits');
+    $request = $client->request('GET', 'https://github.com/reactphp/react/archive/master.zip');
     # Define events for request 
     $request->on('response', function ($response) {
         $buffer = '';

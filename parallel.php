@@ -2,29 +2,31 @@
 
     // downloading the two github project in parallel
 
-    require './vendor/autoload.php';
+      require './vendor/autoload.php';
+      use React\Stream\ReadableResourceStream;
+      use React\Stream\WritableResourceStream;
       
-    # Creating a event loop for our server
-    $loop = React\EventLoop\Factory::create();
-    # project url 
-    $files = array(
-        'react' => 'https://github.com/reactphp/react/archive/master.zip',
-        'event-loop' => 'https://github.com/reactphp/react/archive/master.zip',   
-        'stream' => 'https://github.com/reactphp/stream/archive/master.zip',
-    );
+      # Creating a event loop for our server
+      $loop = React\EventLoop\Factory::create();
+      # project url 
+      $files = array(
+          'react.zip' => 'https://github.com/reactphp/react/archive/master.zip',
+          'event-loop.zip' => 'https://github.com/reactphp/react/archive/master.zip',   
+          'stream.zip' => 'https://github.com/reactphp/stream/archive/master.zip',
+      );
 
 
     foreach ($files as $file => $url) {
         #Open Files for read and write
         $readStream = fopen($url, 'r');
-        $writeStream = fopen($file, 'w');
+        $writeStream = fopen("./download/".$file, 'w');
         #Disable blocking mode
         stream_set_blocking($readStream, 0);
         stream_set_blocking($writeStream, 0);
         print($readStream);
         # Create Stream and added to event loop
-        $read = new React\Stream\Stream($readStream, $loop);
-        $write = new React\Stream\Stream($writeStream, $loop);
+        $read = new ReadableResourceStream($readStream, $loop);
+        $write = new WritableResourceStream($writeStream, $loop);
         # Creat a event of read stream with a callback
         $read->on('end', function () use ($file, &$files) {
             unset($files[$file]);

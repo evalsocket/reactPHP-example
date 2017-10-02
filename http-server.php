@@ -2,7 +2,6 @@
 
   require './vendor/autoload.php';
   use Psr\Http\Message\ServerRequestInterface;
-  use React\EventLoop\Factory;
   use React\Http\Response;
   use React\Http\Server;
 
