@@ -13,8 +13,20 @@
         $loop->addReadStream($server, function ($server) use ($i) {
             # start accepting request from port 808+$i
             $conn=stream_socket_accept($server);
+             
             $len=strlen($i)+4;
-            $data = "HTTP/1.1 200 OK\r\nContent-Length: $len\r\n\r\nHi\n";
+          
+            # Add connection to a event loop
+            $loop->addWriteStream($conn, function ($conn) use (&$len, $i) {
+                $data = "HTTP/1.1 200 OK\r\nContent-Length: $len\r\n\r\nHi\n";
+                $written = fwrite($conn, $data);
+                if ($written === strlen($data)) {
+                    fclose($conn);
+                    $loop->removeStream($conn);
+                } else {
+                    $data = substr($data, $written);
+                }
+            });
             # Wwrite header of response 
             fwrite($conn,$data);
             echo "Served on port 800$i\n";
