@@ -9,6 +9,7 @@
     $dnsResolver = $dnsResolverFactory->createCached('8.8.8.8', $loop);
     # Create a HHTP Client and add it in event loop
     $factory = new React\HttpClient\Factory();
+
     $client = $factory->create($loop, $dnsResolver);
     # Send a Get reuest to 
     $request = $client->request('GET', 'https://api.github.com/repos/evalsocket/evalsocket/commits');
