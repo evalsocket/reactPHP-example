@@ -2,7 +2,7 @@
 
     // downloading the two github project in parallel
 
-    require 'vendor/autoload.php'
+    require './vendor/autoload.php';
       
     # Creating a event loop for our server
     $loop = React\EventLoop\Factory::create();
@@ -10,7 +10,7 @@
     $files = array(
         'react' => 'https://github.com/reactphp/react/archive/master.zip',
         'event-loop' => 'https://github.com/reactphp/react/archive/master.zip',   
-        'stream' => 'https://github.com/reactphp/stream/archive/master.zip'
+        'stream' => 'https://github.com/reactphp/stream/archive/master.zip',
     );
 
 
@@ -21,6 +21,7 @@
         #Disable blocking mode
         stream_set_blocking($readStream, 0);
         stream_set_blocking($writeStream, 0);
+        print($readStream);
         # Create Stream and added to event loop
         $read = new React\Stream\Stream($readStream, $loop);
         $write = new React\Stream\Stream($writeStream, $loop);

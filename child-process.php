@@ -1,7 +1,7 @@
 <?php
-  require 'vendor/autoload.php'
+  require './vendor/autoload.php';
   # Creating a event loop for our server
-  $loop   = React\EventLoop\Factory::create();
+  $loop = React\EventLoop\Factory::create();
   # Define a blocking process
   $process = new React\ChildProcess\Process('php child-block.php');
 

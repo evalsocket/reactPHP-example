@@ -1,6 +1,6 @@
 <?php
     // http client making a request to github api
-    require 'vendor/autoload.php'
+    require 'vendor/autoload.php';
     # Creating a event loop for our server
     $loop = React\EventLoop\Factory::create();
     # Define DNS Resolver

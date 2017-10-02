@@ -1,5 +1,5 @@
 <?php
-    require 'vendor/autoload.php'
+    require 'vendor/autoload.php';
       
     # Creating a event loop for our server
     $loop   = React\EventLoop\Factory::create();
@@ -13,7 +13,7 @@
     
     for ($i=0;$i<3;++$i) {
         # check for documentation of stream_socket_server http://php.net/manual/en/function.stream-socket-server.php
-        $server=stream_socket_server('tcp://127.0.0.1:'.(808+$i));
+        $server=stream_socket_server('tcp://127.0.0.1:808'.$i);
         stream_set_blocking($server, 0);
         # add server to event loop with a callback function
         $loop->addReadStream($server, function ($server) use ($i) {
