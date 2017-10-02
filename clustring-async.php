@@ -15,7 +15,7 @@
             $conn=stream_socket_accept($server);
             $len=strlen($i)+4;
             $data = "HTTP/1.1 200 OK\r\nContent-Length: $len\r\n\r\nHi\n";
-            # Write header of response 
+            # Wwrite header of response 
             fwrite($conn,$data);
             echo "Served on port 800$i\n";
         });
