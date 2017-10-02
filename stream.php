@@ -11,7 +11,7 @@
   $loop = React\EventLoop\Factory::create();
   # Creating a server and passing event loop to that socket 
   $chat = new ThroughStream();
-$server = new Server(function (ServerRequestInterface $request) use ($loop, $chat) {
+  $server = new Server(function (ServerRequestInterface $request) use ($loop, $chat) {
     if ($request->getHeaderLine('Upgrade') !== 'chat' || $request->getProtocolVersion() === '1.0') {
         return new Response(426, array('Upgrade' => 'chat'), '"Upgrade: chat" required');
     }
