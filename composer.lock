@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d6e9db9d2b87b85c49f62f6c11a82795",
-    "content-hash": "6849f65f68d5b6035fc65dff0aace4f9",
+    "hash": "d60172c620419c5ed47a4709b46dba9d",
+    "content-hash": "4a998b1fbdcbfcdfbd46082ba792a204",
     "packages": [
         {
             "name": "evenement/evenement",
@@ -612,6 +612,71 @@
                 "writable"
             ],
             "time": "2017-08-05 09:16:09"
+        },
+        {
+            "name": "reactivex/rxphp",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ReactiveX/RxPHP.git",
+                "reference": "7967294712c021be2c9f16693c2bef19b109992d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ReactiveX/RxPHP/zipball/7967294712c021be2c9f16693c2bef19b109992d",
+                "reference": "7967294712c021be2c9f16693c2bef19b109992d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "~7.0",
+                "react/promise": "~2.2"
+            },
+            "require-dev": {
+                "phpunit/phpcov": "^3.1",
+                "phpunit/phpunit": "^5.7",
+                "react/event-loop": "^0.4.2",
+                "satooshi/php-coveralls": "~1.0"
+            },
+            "suggest": {
+                "react/event-loop": "Used for scheduling async operations"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rx\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                },
+                {
+                    "name": "David Dan",
+                    "email": "davidwdan@gmail.com"
+                },
+                {
+                    "name": "Matt Bonneau",
+                    "email": "matt@bonneau.net"
+                }
+            ],
+            "description": "Reactive extensions for php.",
+            "homepage": "https://github.com/ReactiveX/RxPHP",
+            "keywords": [
+                "extensions",
+                "reactive",
+                "rx"
+            ],
+            "time": "2017-09-05 21:28:09"
         },
         {
             "name": "ringcentral/psr7",

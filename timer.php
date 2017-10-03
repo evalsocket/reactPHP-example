@@ -1,5 +1,5 @@
 <?php
-  require 'vendor/autoload.php';
+  require './vendor/autoload.php';
   # Creating a event loop for our server
   $loop   = React\EventLoop\Factory::create();
 

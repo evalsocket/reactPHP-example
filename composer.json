@@ -4,6 +4,7 @@
         "react/http": "^0.7.4",
         "react/stream": "^0.7.3",
         "react/http-client": "^0.5.6",
-        "react/child-process": "^0.5.0"
+        "react/child-process": "^0.5.0",
+        "reactivex/rxphp": "^2.0"
     }
 }
